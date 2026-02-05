@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT - AI 智能生成</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">PPT</h1>
+            <p class="subtitle">解说万物，一键生成 PPT</p>
+        </header>
+
+        <!-- Main Input Area -->
+        <main class="main-content">
+            <!-- Input Box -->
+            <div class="input-box">
+                <textarea id="user-input" placeholder="制作关于 2025 年苹果最新产品的幻灯片" rows="1"></textarea>
+
+                <div class="input-toolbar">
+                    <div class="toolbar-left">
+                        <div class="toolbar-item" id="ratio-selector">
+                            <span class="icon">📐</span>
+                            <span id="current-ratio">16:9</span>
+                            <div class="dropdown" id="ratio-dropdown">
+                                <div class="dropdown-item active" data-value="16:9">16:9 宽屏</div>
+                                <div class="dropdown-item" data-value="4:3">4:3 标准</div>
+                            </div>
+                        </div>
+                        <div class="toolbar-item" id="lang-selector">
+                            <span class="icon">🌐</span>
+                            <span id="current-lang">中文</span>
+                            <div class="dropdown" id="lang-dropdown">
+                                <div class="dropdown-item active" data-value="中文">中文</div>
+                                <div class="dropdown-item" data-value="English">English</div>
+                                <div class="dropdown-item" data-value="日本語">日本語</div>
+                            </div>
+                        </div>
+                        <div class="toolbar-item" id="slides-selector">
+                            <span class="icon">📊</span>
+                            <span>选择</span>
+                            <span class="highlight" id="current-slides">5</span>
+                            <span>页</span>
+                            <div class="dropdown" id="slides-dropdown">
+                                <div class="dropdown-item" data-value="3">3 页</div>
+                                <div class="dropdown-item" data-value="4">4 页</div>
+                                <div class="dropdown-item active" data-value="5">5 页</div>
+                                <div class="dropdown-item" data-value="6">6 页</div>
+                                <div class="dropdown-item" data-value="8">8 页</div>
+                                <div class="dropdown-item" data-value="10">10 页</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-right">
+                        <button class="icon-btn" title="上传文件">📎</button>
+                        <button class="icon-btn" title="复制">📋</button>
+                        <button class="submit-btn" id="submit-btn">
+                            <span>➤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Style Options -->
+            <div class="style-section">
+                <h3 class="section-title">风格选项</h3>
+                <div class="style-grid">
+                    <div class="style-card" data-style="上传风格">
+                        <div class="style-preview upload-preview">
+                            <span class="upload-icon">📤</span>
+                        </div>
+                        <span class="style-name">上传风格</span>
+                    </div>
+                    <div class="style-card" data-style="素描">
+                        <div class="style-preview" style="background: linear-gradient(135deg, #e8e8e8, #f5f5f5);">
+                            <div class="preview-content sketch">📝</div>
+                        </div>
+                        <span class="style-name">素描</span>
+                    </div>
+                    <div class="style-card active" data-style="科技涂鸦">
+                        <div class="style-preview" style="background: linear-gradient(135deg, #00d4aa, #7c3aed);">
+                            <div class="preview-content">🎨</div>
+                        </div>
+                        <span class="style-name">科技涂鸦</span>
+                    </div>
+                    <div class="style-card" data-style="现代科技（浅色）">
+                        <div class="style-preview" style="background: linear-gradient(135deg, #f0f4f8, #e2e8f0);">
+                            <div class="preview-content">📈</div>
+                        </div>
+                        <span class="style-name">现代科技（浅色）</span>
+                    </div>
+                    <div class="style-card" data-style="现代科技（深色）">
+                        <div class="style-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                            <div class="preview-content dark">💹</div>
+                        </div>
+                        <span class="style-name">现代科技（深色）</span>
+                    </div>
+                </div>
+                <button class="show-more-btn">查看更多 ∨</button>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="suggestions-section">
+                <div class="suggestion-card" data-text="制作关于 2025 年苹果最新产品的幻灯片">
+                    <span class="suggestion-icon">💡</span>
+                    <span class="suggestion-text">制作关于 2025 年苹果最新产品的幻灯片</span>
+                </div>
+                <div class="suggestion-card" data-text="将文章《外卖骑手，困在系统里》转化成一份 PPT。">
+                    <span class="suggestion-icon">💡</span>
+                    <span class="suggestion-text">将文章《外卖骑手，困在系统里》转化成一份 PPT。</span>
+                </div>
+                <div class="suggestion-card" data-text="为我做一份解读阿里巴巴 26Q2 财报的汇报 PPT。">
+                    <span class="suggestion-icon">💡</span>
+                    <span class="suggestion-text">为我做一份解读阿里巴巴 26Q2 财报的汇报 PPT。</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Progress Modal -->
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>🎨 正在生成 PPT</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">准备中...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Modal -->
+        <div class="modal-overlay" id="result-modal">
+            <div class="modal result-modal">
+                <div class="modal-header">
+                    <h3>✅ PPT 生成完成！</h3>
+                    <button class="close-btn" id="close-result">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="result-info" id="result-info"></div>
+                    <button class="download-btn" id="download-btn">
+                        <span>📥</span>
+                        <span>下载 PPT 文件</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
