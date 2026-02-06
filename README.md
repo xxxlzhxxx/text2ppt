@@ -1,6 +1,5 @@
 # Text2PPT - Demo
-
-> ⚠️ **This is a demonstration project** showcasing AI-powered text-to-presentation conversion using Volcengine Ark models.
+ 
 
 An AI-powered tool that converts text content into beautiful PowerPoint presentations.
 
